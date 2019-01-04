@@ -16,6 +16,12 @@
     },
     "shared-auth": {
       "tags": []
+    },
+    "customer-portal": {
+      "tags": []
+    },
+    "customer-portal-e2e": {
+      "tags": []
     }
   }
 }
