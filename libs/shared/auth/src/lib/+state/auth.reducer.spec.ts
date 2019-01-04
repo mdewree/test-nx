@@ -1,4 +1,4 @@
-import { AuthLoaded } from './auth.actions';
+import * as authActions from './auth.actions';
 import { AuthState, Entity, initialState, authReducer } from './auth.reducer';
 
 describe('Auth Reducer', () => {
@@ -15,12 +15,12 @@ describe('Auth Reducer', () => {
   describe('valid Auth actions ', () => {
     it('should return set the list of known Auth', () => {
       const auths = [createAuth('PRODUCT-AAA'), createAuth('PRODUCT-zzz')];
-      const action = new AuthLoaded(auths);
+      const action = new authActions.LoginAction();
       const result: AuthState = authReducer(initialState, action);
-      const selId: string = getAuthId(result.list[1]);
+      const selId: string = getAuthId(result.auth[1]);
 
       expect(result.loaded).toBe(true);
-      expect(result.list.length).toBe(2);
+      expect(result.auth.length).toBe(2);
       expect(selId).toBe('PRODUCT-zzz');
     });
   });

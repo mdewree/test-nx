@@ -10,19 +10,19 @@ const getLoaded = createSelector(
 );
 const getError = createSelector(
   getAuthState,
-  (state: AuthState) => state.error
+  (state: AuthState) => state.loaded
 );
 
 const getAllAuth = createSelector(
   getAuthState,
   getLoaded,
   (state: AuthState, isLoaded) => {
-    return isLoaded ? state.list : [];
+    return isLoaded ? state.auth : [];
   }
 );
 const getSelectedId = createSelector(
   getAuthState,
-  (state: AuthState) => state.selectedId
+  (state: AuthState) => state.auth
 );
 const getSelectedAuth = createSelector(
   getAllAuth,
