@@ -16,8 +16,9 @@ import { storeFreeze } from 'ngrx-store-freeze';
   imports: [
     BrowserModule,
     NxModule.forRoot(),
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
-    StoreModule.forRoot({},{ metaReducers : !environment.production ? [storeFreeze] : [] }),
+    RouterModule.forRoot([
+      { path: 'auth', loadChildren: '@test-nx/shared/auth#SharedAuthModule' }], { initialNavigation: 'enabled' }),
+    StoreModule.forRoot({}, { metaReducers: !environment.production ? [storeFreeze] : [] }),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule
@@ -25,4 +26,4 @@ import { storeFreeze } from 'ngrx-store-freeze';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
