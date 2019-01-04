@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "cypress:open": "cypress open",
     "serve:customer-portal": "ng s customer-portal --port 4201",
     "serve:admin-portal": "ng s admin-portal --port 4202",
     "start": "ng serve",
